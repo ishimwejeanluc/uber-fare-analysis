@@ -276,3 +276,6 @@ After completing this project, you will understand:
 ---
 
 *Comprehensive Uber Fare Analysis & Business Intelligence Dashboard*
+
+int 
+ip ospf 1 area 0
