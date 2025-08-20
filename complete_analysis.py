@@ -19,16 +19,16 @@ warnings.filterwarnings('ignore')
 plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
-print("🚖 Starting Uber Fare Analysis...")
+print("Starting Uber Fare Analysis...")
 print("=" * 50)
 
 # 1. Load the raw data
-print("\n📊 Step 1: Loading raw data...")
+print("\nStep 1: Loading raw data...")
 df = pd.read_csv("Data/raw/uber.csv")
-print(f"✓ Loaded dataset with {df.shape[0]} rows and {df.shape[1]} columns")
+print(f"Loaded dataset with {df.shape[0]} rows and {df.shape[1]} columns")
 
 # 2. Initial data exploration
-print("\n🔍 Step 2: Initial data exploration...")
+print("\nStep 2: Initial data exploration...")
 print("\nFirst 5 rows:")
 print(df.head())
 print("\nDataset info:")
@@ -37,16 +37,16 @@ print("\nSummary statistics:")
 print(df.describe())
 
 # 3. Data cleaning
-print("\n🧹 Step 3: Data cleaning...")
+print("\nStep 3: Data cleaning...")
 print(f"Initial missing values:\n{df.isnull().sum()}")
 
 # Drop missing values
 df = df.dropna()
-print(f"✓ Dropped missing values. New shape: {df.shape}")
+print(f"Dropped missing values. New shape: {df.shape}")
 
 # Convert pickup time to datetime
 df['pickup_datetime'] = pd.to_datetime(df['pickup_datetime'])
-print("✓ Converted pickup_datetime to datetime format")
+print("Converted pickup_datetime to datetime format")
 
 # Remove invalid fares and outliers
 initial_count = len(df)
@@ -55,15 +55,15 @@ df = df[df['fare_amount'] < 200]  # Remove extremely high fares (likely errors)
 df = df[df['passenger_count'] > 0]  # Remove rides with 0 passengers
 df = df[df['passenger_count'] <= 6]  # Remove unrealistic passenger counts
 
-print(f"✓ Removed {initial_count - len(df)} invalid records")
-print(f"✓ Final cleaned dataset: {df.shape[0]} rows")
+print(f"Removed {initial_count - len(df)} invalid records")
+print(f"Final cleaned dataset: {df.shape[0]} rows")
 
 # Save cleaned data
 df.to_csv("Data/cleaned/uber_cleaned.csv", index=False)
-print("✓ Saved cleaned data to Data/cleaned/uber_cleaned.csv")
+print("Saved cleaned data to Data/cleaned/uber_cleaned.csv")
 
 # 4. Feature Engineering
-print("\n⚙️ Step 4: Feature engineering...")
+print("\nStep 4: Feature engineering...")
 
 # Extract time-based features
 df['hour'] = df['pickup_datetime'].dt.hour
@@ -93,17 +93,17 @@ df['time_category'] = df['hour'].apply(time_category)
 df['distance'] = np.sqrt((df['dropoff_longitude'] - df['pickup_longitude'])**2 + 
                         (df['dropoff_latitude'] - df['pickup_latitude'])**2)
 
-print("✓ Created time-based features")
-print("✓ Created peak time indicator")
-print("✓ Created time category feature")
-print("✓ Calculated trip distance")
+print("Created time-based features")
+print("Created peak time indicator")
+print("Created time category feature")
+print("Calculated trip distance")
 
 # Save enhanced data
 df.to_csv("Data/enhanced/uber_enhanced.csv", index=False)
-print("✓ Saved enhanced data to Data/enhanced/uber_enhanced.csv")
+print("Saved enhanced data to Data/enhanced/uber_enhanced.csv")
 
 # 5. Descriptive Statistics
-print("\n📈 Step 5: Descriptive statistics...")
+print("\nStep 5: Descriptive statistics...")
 print(f"Mean fare: ${df['fare_amount'].mean():.2f}")
 print(f"Median fare: ${df['fare_amount'].median():.2f}")
 print(f"Standard deviation: ${df['fare_amount'].std():.2f}")
@@ -118,7 +118,7 @@ outliers = df[(df['fare_amount'] < Q1 - 1.5 * IQR) | (df['fare_amount'] > Q3 + 1
 print(f"Outliers detected: {len(outliers)} ({len(outliers)/len(df)*100:.1f}%)")
 
 # 6. Generate Visualizations
-print("\n📊 Step 6: Generating visualizations...")
+print("\nStep 6: Generating visualizations...")
 
 # Create powerbi directory if it doesn't exist
 import os
@@ -134,7 +134,7 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("powerbi/fare_distribution.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated fare distribution histogram")
+print("Generated fare distribution histogram")
 
 # 2. Box plot for fare by time category
 plt.figure(figsize=(10, 6))
@@ -147,7 +147,7 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("powerbi/boxPlot.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated box plot by time category")
+print("Generated box plot by time category")
 
 # 3. Average fare by hour
 hourly_fare = df.groupby('hour')['fare_amount'].mean().reset_index()
@@ -161,7 +161,7 @@ plt.xticks(range(0, 24))
 plt.tight_layout()
 plt.savefig("powerbi/fare_hour.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated hourly fare trend")
+print("Generated hourly fare trend")
 
 # 4. Number of rides by hour
 hourly_rides = df.groupby('hour').size().reset_index(name='ride_count')
@@ -175,7 +175,7 @@ plt.xticks(range(0, 24))
 plt.tight_layout()
 plt.savefig("powerbi/rides_hour.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated hourly ride count")
+print("Generated hourly ride count")
 
 # 5. Average fare by weekday
 weekday_fare = df.groupby('weekday')['fare_amount'].mean().reindex([
@@ -191,7 +191,7 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("powerbi/fare_week.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated weekly fare analysis")
+print("Generated weekly fare analysis")
 
 # 6. Number of rides by weekday
 weekday_rides = df.groupby('weekday').size().reindex([
@@ -207,7 +207,7 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("powerbi/rides_weekday.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated weekly ride count")
+print("Generated weekly ride count")
 
 # 7. Monthly fare trends
 monthly_fare = df.groupby('month')['fare_amount'].mean().reset_index()
@@ -221,7 +221,7 @@ plt.xticks(range(1, 13))
 plt.tight_layout()
 plt.savefig("powerbi/fare_monthly.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated monthly fare trends")
+print("Generated monthly fare trends")
 
 # 8. Peak vs Off-peak comparison
 peak_comparison = df.groupby('is_peak')['fare_amount'].agg(['mean', 'count']).reset_index()
@@ -242,7 +242,7 @@ ax2.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("powerbi/peak_analysis.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated peak vs off-peak analysis")
+print("Generated peak vs off-peak analysis")
 
 # 9. Passenger count analysis
 passenger_stats = df.groupby('passenger_count')['fare_amount'].agg(['mean', 'count']).reset_index()
@@ -265,7 +265,7 @@ ax2.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("powerbi/passenger_analysis.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated passenger count analysis")
+print("Generated passenger count analysis")
 
 # 10. Summary statistics visualization
 fig, axes = plt.subplots(2, 2, figsize=(15, 12))
@@ -303,10 +303,10 @@ axes[1,1].set_title("Correlation Matrix", fontweight='bold')
 plt.tight_layout()
 plt.savefig("powerbi/summary_analysis.png", dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Generated summary analysis dashboard")
+print("Generated summary analysis dashboard")
 
 # 7. Generate Analysis Report
-print("\n📝 Step 7: Generating analysis report...")
+print("\nStep 7: Generating analysis report...")
 
 report = f"""
 # Uber Fare Analysis Report
@@ -354,21 +354,21 @@ report = f"""
 with open("Documents/analysis_report.txt", "w") as f:
     f.write(report)
 
-print("✓ Generated comprehensive analysis report")
+print("Generated comprehensive analysis report")
 
 print("\n" + "=" * 50)
-print("🎉 Analysis Complete!")
-print(f"✓ Cleaned data saved to: Data/cleaned/uber_cleaned.csv")
-print(f"✓ Enhanced data saved to: Data/enhanced/uber_enhanced.csv")
-print(f"✓ Visualizations saved to: powerbi/ directory")
-print(f"✓ Analysis report saved to: Documents/analysis_report.txt")
+print("Analysis Complete!")
+print(f"Cleaned data saved to: Data/cleaned/uber_cleaned.csv")
+print(f"Enhanced data saved to: Data/enhanced/uber_enhanced.csv")
+print(f"Visualizations saved to: powerbi/ directory")
+print(f"Analysis report saved to: Documents/analysis_report.txt")
 print("=" * 50)
 
 # Display final summary
-print(f"\n📊 FINAL SUMMARY:")
+print(f"\nFINAL SUMMARY:")
 print(f"   Records processed: {len(df):,}")
 print(f"   Visualizations created: 10")
 print(f"   Average fare: ${df['fare_amount'].mean():.2f}")
 print(f"   Peak hours identified: 7-9 AM, 5-7 PM")
 print(f"   Busiest day: {weekday_rides.idxmax()}")
-print(f"   Analysis complete! 🚖")
+print(f"   Analysis complete!")

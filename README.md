@@ -1,8 +1,8 @@
-# 🚖 Uber Fares Data Analysis with Power BI
+# Uber Fares Data Analysis with Power BI
 
 This project provides a comprehensive analysis of **200,000 Uber ride records**, exploring fare patterns, passenger trends, and temporal behaviors through Python data analysis and Power BI visualization. The analysis follows a complete workflow from raw data preprocessing to interactive dashboard creation for business intelligence insights.
 
-## 🎯 **Project Objectives**
+## **Project Objectives**
 
 - Analyze fare distribution and identify pricing patterns
 - Detect seasonal and temporal usage trends  
@@ -12,7 +12,7 @@ This project provides a comprehensive analysis of **200,000 Uber ride records**,
 
 ---
 
-## 🚀 **Quick Start Guide - How to Run This Project**
+## **Quick Start Guide - How to Run This Project**
 
 ### **Step 1: Prerequisites**
 Ensure you have Python 3.7+ installed with the following packages:
@@ -25,29 +25,29 @@ This step processes the raw data and generates all necessary files:
 
 ```bash
 # Navigate to project directory
-cd /path/to/26590_Uberfare-main
+cd /path/to/uber-fare-analysis
 
 # Run the complete analysis script
 python3 complete_analysis.py
 ```
 
 **What this does:**
-- ✅ Loads and cleans 200,000 Uber records
-- ✅ Creates enhanced dataset with time-based features  
-- ✅ Generates 10+ static visualizations
-- ✅ Produces analysis report with key insights
-- ✅ Saves processed data for interactive exploration
+- Loads and cleans 200,000 Uber records
+- Creates enhanced dataset with time-based features  
+- Generates 10+ static visualizations
+- Produces analysis report with key insights
+- Saves processed data for interactive exploration
 
 **Expected Output:**
 ```
-🚖 Starting Uber Fare Analysis...
-📊 Step 1: Loading raw data... ✓
-🧹 Step 2: Data cleaning... ✓  
-⚙️ Step 3: Feature engineering... ✓
-📈 Step 4: Descriptive statistics... ✓
-📊 Step 5: Generating visualizations... ✓
-📝 Step 6: Analysis report... ✓
-🎉 Analysis Complete!
+Starting Uber Fare Analysis...
+Step 1: Loading raw data...
+Step 2: Data cleaning...
+Step 3: Feature engineering...
+Step 4: Descriptive statistics...
+Step 5: Generating visualizations...
+Step 6: Analysis report...
+Analysis Complete!
 ```
 
 ### **Step 3: Interactive Exploration (Optional)**
@@ -77,37 +77,37 @@ open Dashboard.pbix
 
 ---
 
-## 📁 **Project Structure**
+## **Project Structure**
 
 ```
-26590_Uberfare-main/
-├── 📊 Data/
+uber-fare-analysis/
+├── Data/
 │   ├── raw/
 │   │   └── uber.csv                    # Original dataset (200K records)
 │   ├── cleaned/
 │   │   └── uber_cleaned.csv           # Cleaned dataset
 │   └── enhanced/
 │       └── uber_enhanced.csv          # Feature-engineered dataset
-├── 📝 Documents/
+├── Documents/
 │   ├── analysis_report.txt            # Comprehensive analysis report
 │   ├── report.md                      # Detailed methodology report
 │   └── image.png                      # Dashboard preview
-├── 📓 notebooks/
+├── notebooks/
 │   └── data_analysis.py               # Basic analysis script
-├── 📊 powerbi/
+├── powerbi/
 │   ├── fare_distribution.png          # Static visualizations
 │   ├── peak_analysis.png
 │   ├── summary_analysis.png
 │   └── [10+ other charts]
-├── 🔧 Scripts/
+├── Scripts/
 │   └── complete_analysis.py           # Main analysis script
-├── 📱 Interactive_Analysis.ipynb      # Jupyter notebook
-└── 📋 Dashboard.pbix                  # Power BI dashboard
+├── Interactive_Analysis.ipynb      # Jupyter notebook
+└── Dashboard.pbix                  # Power BI dashboard
 ```
 
 ---
 
-## 📊 **Key Findings & Insights**
+## **Key Findings & Insights**
 
 ### **Dataset Overview**
 - **Total Records**: 199,260 (after cleaning)
@@ -142,7 +142,7 @@ open Dashboard.pbix
 
 ---
 
-## 💡 **Business Recommendations**
+## **Business Recommendations**
 
 ### **1. Dynamic Pricing Strategy**
 - Implement surge pricing during peak hours (7-9 AM, 5-7 PM)
@@ -170,7 +170,7 @@ open Dashboard.pbix
 
 ---
 
-## 🛠 **Technical Implementation**
+## **Technical Implementation**
 
 ### **Data Processing Pipeline**
 1. **Raw Data Ingestion** → Load 200K records from CSV
@@ -196,7 +196,7 @@ open Dashboard.pbix
 
 ---
 
-## 📈 **Analysis Results Summary**
+## **Analysis Results Summary**
 
 | **Metric** | **Value** | **Insight** |
 |------------|-----------|-------------|
@@ -208,7 +208,7 @@ open Dashboard.pbix
 
 ---
 
-## 🔄 **Workflow Overview**
+## **Workflow Overview**
 
 ```mermaid
 graph TD
@@ -225,7 +225,7 @@ graph TD
 
 ---
 
-## 📝 **File Descriptions**
+## **File Descriptions**
 
 ### **Core Scripts**
 - `complete_analysis.py` - Main analysis pipeline (RUN THIS FIRST)
@@ -244,7 +244,7 @@ graph TD
 
 ---
 
-## 🚀 **Getting Started Checklist**
+## **Getting Started Checklist**
 
 - [ ] **Download/Clone** this repository
 - [ ] **Install** Python packages: `pip install pandas numpy matplotlib seaborn plotly`
@@ -255,7 +255,7 @@ graph TD
 
 ---
 
-## 🎓 **Learning Outcomes**
+## **Learning Outcomes**
 
 After completing this project, you will understand:
 - **Data Science Workflow**: End-to-end analysis process
@@ -266,7 +266,7 @@ After completing this project, you will understand:
 
 ---
 
-## 📞 **Support & Documentation**
+## **Support & Documentation**
 
 - **Issues**: Check generated `analysis_report.txt` for insights
 - **Interactive Help**: Run notebook cells step-by-step
