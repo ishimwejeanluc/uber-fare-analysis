@@ -1,0 +1,40 @@
+
+# Uber Fare Analysis Report
+
+## Dataset Overview
+- **Total Records**: 199,260
+- **Time Period**: 2009-01-01 01:15:22+00:00 to 2015-06-30 23:40:39+00:00
+- **Features**: 18 columns
+
+## Key Findings
+
+### Fare Statistics
+- **Average Fare**: $11.36
+- **Median Fare**: $8.50
+- **Fare Range**: $0.01 - $196.00
+- **Standard Deviation**: $9.74
+
+### Time-based Patterns
+- **Peak Hours**: 7-9 AM and 5-7 PM show different patterns
+- **Busiest Day**: Friday (30,772 rides)
+- **Highest Fare Day**: Sunday ($11.73 avg)
+
+### Passenger Patterns
+- **Most Common**: 1 passenger(s) per ride
+- **Average Passengers**: 1.7
+- **Max Passengers**: 6
+
+### Distance Analysis
+- **Average Distance**: 0.2548 degrees
+- **Correlation with Fare**: 0.012
+
+## Recommendations
+1. **Peak Hour Pricing**: Consider dynamic pricing during peak hours
+2. **Weekend Strategy**: Weekend patterns differ from weekdays
+3. **Distance-based Pricing**: Strong correlation suggests distance-based pricing optimization
+4. **Passenger Optimization**: Multi-passenger rides could be encouraged
+
+## Data Quality
+- **Missing Values**: 0 (after cleaning)
+- **Outliers**: 17113 records (8.6%)
+- **Data Completeness**: 100.0%
